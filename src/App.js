@@ -1,30 +1,21 @@
-import { useState } from 'react';
-import './App.css';
-import booking from './booking';
+
+import Statement from 'components/Statement/Statement';
+import Form from 'components/Form/Form';
+import 'App.css';
+import Constraints from 'components/Constraints/Constraints';
 
 function App() {
-  const [state, setState] = useState('');
-  
-  function handleChange (e) {
-    setState(e.target.value);
-  }
-  
-  function handleSubmit (e) {
-    e.preventDefault();
-    booking(state);
-  }
 
-  return (
-    <form onSubmit={handleSubmit} className="App">
+return(
+  <>
+    <Statement />
+    
+    <Constraints />
 
-      <label htmlFor="input">Introduzca el input del problema</label>
+    <Form />
+  </>
+)
 
-      <textarea id="input" onChange={handleChange} value={state}></textarea>
-
-      <button>Click me!</button>
-
-    </form>
-  );
 }
 
 export default App;
