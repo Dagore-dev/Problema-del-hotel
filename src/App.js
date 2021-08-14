@@ -1,10 +1,17 @@
+import { useState } from 'react';
 
-import Statement from 'components/Statement/Statement';
-import Form from 'components/Form/Form';
+
+import Statement from 'components/Statement';
+import Form from 'components/Form';
+import booking from 'services/booking';
+import Constraints from 'components/Constraints';
+
 import 'App.css';
-import Constraints from 'components/Constraints/Constraints';
+import Result from 'components/Result';
 
 function App() {
+
+const [output, setOutput] = useState('');
 
 return(
   <>
@@ -12,7 +19,9 @@ return(
     
     <Constraints />
 
-    <Form />
+    <Form booking={booking} setOutput={setOutput}/>
+
+    <Result output={output} />
   </>
 )
 

@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import booking from 'booking';
 
 import './styles.css'
 
-export default function Form () {
+export default function Form ( { booking, setOutput } ) {
   const [state, setState] = useState('');
   
   function handleChange (e) {
@@ -12,7 +11,7 @@ export default function Form () {
   
   function handleSubmit (e) {
     e.preventDefault();
-    booking(state);
+    setOutput( booking(state) );
   }
 
   return (
