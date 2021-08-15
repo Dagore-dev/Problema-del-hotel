@@ -12,6 +12,7 @@ export default function Form ( { booking, setOutput } ) {
   function handleSubmit (e) {
     e.preventDefault();
     setOutput( booking(state) );
+    setState('');
   }
 
   return (

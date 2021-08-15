@@ -11,15 +11,16 @@
 
 .statement,
 .constraints,
-.form {
+.form,
+.result {
   margin: 1rem;
 }
 
 @media screen and (min-width: 1024px) {
   
   .root {
-    grid-template-columns: minmax(300px, 50%) minmax(300px, 50%);
-    grid-template-rows: minmax(300px, 50%) minmax(300px, 50%);
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(3, auto);
   }
   
   .statement {
@@ -29,11 +30,16 @@
   
   .constraints {
     grid-column: 2 / 3;
-    grid-row: 1/ 3;
+    grid-row: 1 / 4;
   }
   
   .form {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+  }
+
+  .result {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
   }
 }

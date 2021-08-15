@@ -1,8 +1,17 @@
+import validation from "./validation";
+import parseInput from "./parseInput";
 import compare from "./compare";
 
-export default function booking (conjunto) {
-  let beds = conjunto[0][1];
-  const clients = conjunto.slice(1, conjunto.length - 1);
+export default function booking (input) {
+  
+  const trimInput = input.trim();
+
+  if (validation(trimInput) === false) return 'Por favor, introduzca un input válido.';
+
+  const parsedInput = parseInput(trimInput);
+
+  let beds = parsedInput[0][1];
+  const clients = parsedInput.slice(1, parsedInput.length - 1);
   const bookings = clients.sort(compare);
   let bookedNow = [];
   let satisfiedClients = [];
@@ -29,5 +38,5 @@ export default function booking (conjunto) {
       }
     }
   }
-  return satisfiedClients;
+  return satisfiedClients.length;
 }
